@@ -30,11 +30,11 @@ export class AppareilComponent implements OnInit {
     }
   }
 
-  onSwitchOn(){
+  onSwitchOn() {
     this.appareilService.switchOnOne(this.indexOfAppareil);
   }
 
-  onSwitchOff(){
+  onSwitchOff() {
     this.appareilService.switchOffOne(this.indexOfAppareil);
   }
 }
