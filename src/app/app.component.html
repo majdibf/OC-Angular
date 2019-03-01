@@ -4,12 +4,15 @@
       <p>Mis à jour {{ lastUpdate | async  | date:'yMMMMEEEEd' | uppercase }}</p>
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil *ngFor="let appareil of appareils"
-         [appareilName]="appareil.name" [appareilStatus]="appareil.status"></app-appareil>
+        <app-appareil *ngFor="let appareil of appareils; let i = index"
+                      [indexOfAppareil]="i"
+                      [appareilName]="appareil.name"
+                      [appareilStatus]="appareil.status"></app-appareil>
       </ul>
       <button class="btn btn-success" 
-              [disabled]="!isAuth"
               (click)="onAllumer()">Tout allumer</button>
+      <button class="btn btn-danger"
+              (click)="onEteindre()">Tout éteindre</button>
     </div>
   </div>
 </div>
