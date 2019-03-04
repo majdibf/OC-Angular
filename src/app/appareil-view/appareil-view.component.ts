@@ -30,7 +30,7 @@ export class AppareilViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appareilsSubscription= this.appareilService.appareilSubject.subscribe(
+    this.appareilsSubscription = this.appareilService.appareilSubject.subscribe(
       (appareils: any[]) => {
         this.appareils = appareils;
       }

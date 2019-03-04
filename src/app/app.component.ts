@@ -7,8 +7,8 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent implements OnInit, OnDestroy{
-  
+export class AppComponent implements OnInit, OnDestroy {
+
   secondes: number;
   counterSubscription: Subscription;
 
@@ -18,13 +18,13 @@ export class AppComponent implements OnInit, OnDestroy{
   ngOnInit() {
     const counter = interval(1000);
     this.counterSubscription = counter.subscribe(
-      (value: number) =>{
+      (value: number) => {
         this.secondes = value;
       }
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.counterSubscription.unsubscribe();
   }
 }

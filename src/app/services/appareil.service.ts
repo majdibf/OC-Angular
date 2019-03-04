@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
 
 export class AppareilService {
-    
+
     appareilSubject = new Subject<any[]>();
 
     private appareils = [
@@ -22,7 +22,7 @@ export class AppareilService {
         }
     ];
 
-    emitAppareilsSubject(){
+    emitAppareilsSubject() {
         this.appareilSubject.next(this.appareils.slice());
     }
 
@@ -56,5 +56,19 @@ export class AppareilService {
     switchOffOne(index: number) {
         this.appareils[index].status = 'éteint';
         this.emitAppareilsSubject();
+    }
+
+    addAppareil(name: string, status: string) {
+         const appareilObject = {
+            id: 0,
+            name: '',
+            status: ''
+        };
+         appareilObject.name = name;
+         appareilObject.status = status;
+         appareilObject.id = this.appareils[(this.appareils.length - 1)].id + 1;
+         this.appareils.push(appareilObject);
+         this.emitAppareilsSubject();
+
     }
 }
