@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -43,12 +44,13 @@ const appRoutes: Routes = [
     FourOhFourComponent,
     EditAppareilComponent,
     UserListComponent,
-    NewUserComponent
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [AppareilService, AuthService, AuthGuard, UserService],
